@@ -1,0 +1,59 @@
+
+We need to set up the latest version of node js.
+
+Then we have created 2 directory inside our project directory. Client and Server.
+
+We can check the version of node js by using this command:-
+nodejs -v
+
+We have initialised npm in the server directory.
+inside the directory (server) through terminal, We have setup the npm through this command.
+npm init -y
+
+Here "-y" is known as Yes flag. That created a package.json file inside the server directory.
+
+Now we have install essential package in server directory.
+
+npm i express nodemon morgan mongoose jsonswebtoken bcrypt nanoid cors email-validator slugify node-geocoder
+
+Here nodemon will help to us to continuous run our server.
+Here morgan help us to see the api end point.
+Here mongoose is Object data modelling.
+Here jsonswebtoken Our authentication will be based on this JWT token.
+Here bcrypt is used to hash the password bacause it should be saving the plan password.
+Here nanoid; this will be used to genereate unique short IDs.
+Here slugify: We used it for make our url more clear and seo friendly. Eg: https://realist.com/server/fsadif9yu  after using it we can make https://realist.com/server/next-page.
+Here node-geocoder we going to used it because we're going to use Google Maps API that will give us the auto drop down. So using this latitude and logitude, you can query within the radius, for example, 20 kilmoters within that address, with mongoose you have flexibity to query based on the location.
+
+
+After installation of packages, package-lock.js will recreated.
+
+
+
+Now i have going to build node js server.
+
+We have imported the express in server:
+import express from 'express';
+
+
+To check server is running:
+
+app.get('/api', (req,res) => {
+    //using res.json(); 
+    res.json({
+        data: "hello from nodejs api",
+    });
+});
+
+app.listen(8000, () => console.log("server_running_on_port_8000"));
+
+
+
+To install all the packages, just need to install npm by running command:
+npm install
+
+
+
+
+Through this we can check whether mongodb is connect or not thorugh locat system.
+mongoose.connect(DATABASE).then(() =>console.log('db_connected')).catch((err) =>console.log(err));
